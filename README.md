@@ -1,29 +1,29 @@
 # Expense Tracker
 
-A dependency-free Python command-line app for recording expenses in SQLite, reviewing transactions, and comparing spending by category.
+A command-line personal expense tracker written in Python using SQLite.
 
 ## Features
-
-- Add expenses with a date, category, amount, and description
-- Review recent entries
-- View totals grouped by category
-- Delete an entry by its ID
-- Validate blank fields, non-positive amounts, and invalid IDs
-- Persist data in a local SQLite database
+- Add, list, and delete expenses
+- Validate positive amounts with up to two decimal places
+- Category-wise summaries and monthly totals
+- Export records to CSV
+- Persistent SQLite storage (created automatically)
 
 ## Requirements
-
-- Python 3.9+
-- No third-party packages
+- Python 3.10 or newer
+- No third-party packages required
 
 ## Run
-
 ```bash
 python main.py
 ```
 
-Choose an action from the menu. The application creates `expenses.db` in the current working directory on first run.
+The app creates `expenses.db` in the current directory. The default currency display is INR (₹); the database stores numeric amounts, so use a consistent currency for all entries.
 
-## Data and limitations
+## Test
+```bash
+python -m unittest discover -s tests -v
+```
 
-Expense amounts are displayed in USD and stored as SQLite floating-point values. This is a learning project and is intended for local use; it does not include accounts, synchronization, backups, or financial reporting controls. Keep the database file private and make backups if its contents matter.
+## Data and backups
+The database contains your expense records. Keep `expenses.db` private and back it up regularly. Use the CSV export option to create a portable copy.
